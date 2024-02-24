@@ -1,0 +1,64 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.css";
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+ .bnt01 {
+  border: 1px solid dimgray;
+}
+
+.bnt01:hover {
+  border: 1px solid black;
+  background-color: white;
+
+ }
+ .bnt01:active {
+  border: 1px solid orange;
+ }
+
+
+ /*https://fonts.google.com/icons?selected=Material+Icons:pageview:&icon.query=search&icon.platform=web  */
+
+
+ .tab01 {
+  background-color: white;
+  font-family: 'Roboto';
+  font-size: 12px;
+
+   }
+
+ body {
+background-color: #e7eaf6;
+font-family: 'Roboto';
+font-size: 12px;
+
+ }
+
+
+ .dialog01 {
+  background-color: #e7eaf6;
+  font-family: 'Roboto';
+  font-size: 12px;
+   }
+
+
+ .label01 {
+  background-color: #e7eaf6;
+  font-family: 'Roboto';
+  font-size: 12px;
+  }
+
+  .inputText01 {
+    font-family: 'Roboto';
+    font-size: 12px;
+    height: 30px;
+  }
+
+  .table01 {
+    background-color: #e7eaf6;
+    font-family: 'Roboto';
+    font-size: 12px;
+     }

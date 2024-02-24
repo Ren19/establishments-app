@@ -1,0 +1,177 @@
+
+
+
+<h3 mat-dialog-title>Busqueda de Solicitud</h3>
+<div mat-dialog-content>
+  <div class="tb_tamanio">
+  <div class="container dialog01">
+    <div class="row">
+      <div class="input-group mb-3">
+        <span class="input-group-text diametro4 label01">Establecimiento:</span>
+        <input type="text" class="form-control diametro6 inputText01" [(ngModel)]="txtEstablec" placeholder="Nombre Comercial"/>
+        <button type="button" class="btn btn-outline-secondary" (click)="clickBuscar()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"></path>
+          </svg>
+        <span class="visually-hidden">Button</span>
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-group mb-3">
+        <span class="input-group-text diametro4 label01">Buscar por:</span>
+        <select class="inputText01" name="cboTipoBusqueda" matNativeControl required [(ngModel)]="selectedTipoBusqueda" (change)="getValTipoBusqueda()">
+          <option value="1">NRO. DE EXPEDIENTE/DOCUMENTO</option>
+          <option value="2">NRO.DE REFERENCIA</option>
+          <option value="3">RAZÓN SOCIAL</option>
+          <option value="4">NOMBRE COMERCIAL</option>
+          <option value="5">RUC</option>
+          <option value="6">NRO. DE SOLICITUD</option>
+        </select>
+        <span class="input-group-text label01">Expresion</span>
+          <input type="text" class="form-control diametro1 inputText01" [(ngModel)]="anioexpediente" placeholder="Año" *ngIf="visible"/>
+          <input type="text" class="form-control diametro3 inputText01" [(ngModel)]="numeroexpediente" placeholder="Numero Expediente" *ngIf="visible"/>
+        <input type="text" class="form-control diametro1 inputText01" [(ngModel)]="expbuscar" placeholder="" *ngIf="!visible"/>
+        <button type="button" class="btn btn-outline-secondary" (click)="buscarClick()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"></path>
+          </svg>
+        <span class="visually-hidden">Button</span>
+        </button>
+
+      </div>
+    </div>
+    <div class="row overflow-scroll">
+
+
+
+
+      <div class="col">
+
+        <div class="input-group mb-2 ">
+
+          <table mat-table [dataSource]="dataSource" class="table table-striped table-hover table01">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="solcodigo">
+              <th mat-header-cell *matHeaderCellDef>N°Sol.</th>
+              <td mat-cell *matCellDef="let element"> {{element.solcodigo}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="solindipro">
+              <th mat-header-cell *matHeaderCellDef>P.</th>
+              <td mat-cell *matCellDef="let element"> {{element.solindipro}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="expcodigo">
+              <th mat-header-cell *matHeaderCellDef>N°Exp.</th>
+              <td mat-cell *matCellDef="let element"> {{element.expcodigo}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="expfechreg">
+              <th mat-header-cell *matHeaderCellDef>Fec.Exp.</th>
+              <td mat-cell *matCellDef="let element"> {{element.expfechreg}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="soldocuref">
+              <th mat-header-cell *matHeaderCellDef>N°RD</th>
+              <td mat-cell *matCellDef="let element"> {{element.soldocuref}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="soldocufech">
+              <th mat-header-cell *matHeaderCellDef>Fec.RD</th>
+              <td mat-cell *matCellDef="let element"> {{element.soldocufech}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="solnumeins">
+              <th mat-header-cell *matHeaderCellDef>Cod.Est.</th>
+              <td mat-cell *matCellDef="let element"> {{element.solnumeins}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="catabrevia">
+              <th mat-header-cell *matHeaderCellDef>Cat.</th>
+              <td mat-cell *matCellDef="let element"> {{element.catabrevia}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="soldescrip">
+              <th mat-header-cell *matHeaderCellDef>Razón Social</th>
+              <td mat-cell *matCellDef="let element"> {{element.soldescrip}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="solnombcom">
+              <th mat-header-cell *matHeaderCellDef>Nombre Comercial</th>
+              <td mat-cell *matCellDef="let element"> {{element.solnombcom}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="solnumeruc">
+              <th mat-header-cell *matHeaderCellDef>N°RUC</th>
+              <td mat-cell *matCellDef="let element"> {{element.solnumeruc}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="tdtabreviasit">
+              <th mat-header-cell *matHeaderCellDef>Sit</th>
+              <td mat-cell *matCellDef="let element"> {{element.tdtabreviasit}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="soldireccion">
+              <th mat-header-cell *matHeaderCellDef>Dirección</th>
+              <td mat-cell *matCellDef="let element"> {{element.soldireccion}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row
+                (click)="singlePayment(row)"
+                *matRowDef="let row; columns: displayedColumns;"
+            ></tr>
+
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[1, 6, 9]"
+                         showFirstLastButtons
+                         aria-label="Select page of periodic elements">
+          </mat-paginator>
+
+
+
+
+          <div class="form-group">
+            <div mat-dialog-actions>
+              <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <button class="boton-icon bnt01" (click)="onNoClick2()">
+                      <span class="material-icons">
+                        check_box
+                        </span>
+                    </button>
+                  </div>
+                  <div class="col">
+                    <button class="boton-icon bnt01" (click)="onNoClick()">
+                      <span class="material-icons">
+                        cancel_presentation
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

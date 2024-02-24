@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Datos Generales</title>
+</head>
+<body>
+
+  <div class="flex flex-col gap-2">
+    <div class="m-card">
+      <div class="flex w-full">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="campo">
+            <div class="grid grid-cols-3 gap-3">
+              <div class="campo">
+                <label for="">Cod. Personal</label>
+               <input type="text">
+              </div>
+              <div class="campo">
+               <label for="">Tipo Cambio</label>
+               <select name="cbodgtipotramite" matNativeControl required>
+                <option selected>Select Forma</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+               </select>
+              </div>
+              <div class="campo">
+               <label for="">Situacion</label>
+                <select name="cbodgtipotramite" matNativeControl required>
+                <option selected>Select Forma</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                </select>
+              </div>
+           </div>
+          </div>
+          <div class="campo">
+            <div class="grid grid-cols-2 gap-2">
+              <div class="campo">
+                <label for="">Apellidos y Nombres</label>
+              </div>
+              <div class="campo">
+                  <input type="text">
+                  <button class="boton-icon bnt01" (click)="buscarRepresentanteLegal()">
+                    <span class="material-icons">
+                      search
+                    </span>
+                  </button>
+              </div>
+            </div>
+          </div>
+          <div class="campo">
+            <div class="grid grid-cols-2 gap-2">
+              <div class="campo">
+                <label for="">Cargo</label>
+              </div>
+              <div class="campo">
+                <input type="text">
+                <button class="boton-icon bnt01"   (click)="buscarCargo()">
+                  <span class="material-icons">
+                    search
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <div class="flex flex-col gap-1">
+    <div class="m-card">
+      <div class="flex w-full">
+          <div class="m-card">
+            <h2>Inicio de Actividad</h2>
+            <div class="flex w-full">
+              <div class="flex flex-col gap-2 w-full p-2">
+                <div class="campo">
+                  <div class="grid grid-cols-2 gap-2">
+                    <div class="campo">
+                      <label for="">Tipo Doc.</label>
+                    </div>
+                    <div class="campo">
+                      <select name="cbodgtipotramite" matNativeControl required>
+                        <option selected>Select Forma</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                       </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="campo">
+                  <div class="grid grid-cols-2 gap-2">
+                    <div class="campo">
+                      <label for="">Cod. Personal</label>
+                     <input type="text">
+                    </div>
+                    <div class="campo">
+                      <label for="">Cod. Personal</label>
+                     <input type="text">
+                    </div>
+                 </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="m-card">
+            <h2>Fin de Actividad</h2>
+            <div class="flex w-full">
+              <div class="flex flex-col gap-2 w-full p-2">
+                <div class="campo">
+                  <div class="grid grid-cols-2 gap-2">
+                    <div class="campo">
+                      <label for="">Tipo Doc.</label>
+                    </div>
+                    <div class="campo">
+                      <select name="cbodgtipotramite" matNativeControl required>
+                        <option selected>Select Forma</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                       </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="campo">
+                  <div class="grid grid-cols-2 gap-2">
+                    <div class="campo">
+                      <label for="">Cod. Personal</label>
+                     <input type="text">
+                    </div>
+                    <div class="campo">
+                      <label for="">Cod. Personal</label>
+                     <input type="text">
+                    </div>
+                 </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="flex flex-col gap-2">
+    <div class="m-card">
+      <div class="flex w-full">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="campo">
+            <div class="grid grid-cols-4 gap-4">
+              <div class="campo">
+                <button class="boton-icon bnt01" (click)="onNoClick()">
+                  <span class="material-icons">
+                    cancel_presentation
+                  </span>
+                </button>
+              </div>
+              <div class="campo">
+                <button class="boton-icon bnt01" (click)="onNoClick2()">
+                  <span class="material-icons">
+                    check_box
+                    </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

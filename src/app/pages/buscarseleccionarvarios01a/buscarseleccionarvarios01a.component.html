@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Datos Generales</title>
+</head>
+<body>
+
+  <div class="flex flex-col gap-2">
+    <div class="m-card">
+      <div class="flex w-full">
+        <div class="flex flex-col gap-2 w-full p-2">
+
+
+          <div class="campo">
+            <div class="grid grid-cols-2 gap-2">
+              <div class="campo">
+                <label for="">Buscar Por</label>
+              </div>
+              <div class="campo">
+                <select name="cbodgtipotramite" matNativeControl required>
+                  <option value="2" selected>DESCRIPCION</option>
+                 </select>
+              </div>
+            </div>
+          </div>
+          <div class="campo">
+            <div class="grid grid-cols-2 gap-2">
+              <div class="campo">
+                <label for="">Expresion</label>
+              </div>
+              <div class="campo">
+                <input type="text" class="form-control inputText01" [(ngModel)]="expresion"
+                placeholder="expresion"
+                maxlength="100"
+                placeholder="expresion"
+                (keydown.enter)="buscarClick()">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="flex flex-col gap-1">
+    <div class="m-card">
+      <table mat-table [dataSource]="dataSourceVarios" class="table table-striped table-hover">
+
+
+        <ng-container matColumnDef="actcodigo">
+          <th mat-header-cell *matHeaderCellDef>
+            <input type="checkbox" [(ngModel)]="checked">S
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <input type="checkbox" [(ngModel)]="checked" value="{{element.actcodigo}}">
+          </td>
+        </ng-container>
+
+
+
+        <ng-container matColumnDef="actdescrip">
+          <th mat-header-cell *matHeaderCellDef>Descripcion</th>
+          <td mat-cell *matCellDef="let element"> {{element.actdescrip}}</td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsVarios"></tr>
+        <tr mat-row
+            (click)="clickPersonal(row)"
+            *matRowDef="let row; columns: displayedColumnsVarios;"
+        ></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[1, 6, 9]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements">
+</mat-paginator>
+     </div>
+    </div>
+
+
+    <div class="flex flex-col gap-2">
+      <div class="m-card">
+        <div class="flex w-full">
+          <div class="flex flex-col gap-2 w-full p-2">
+            <div class="campo">
+              <div class="grid grid-cols-4 gap-4">
+                <div class="campo">
+                  <button class="boton-icon bnt01" (click)="onNoClick2()">
+                    <span class="material-icons">
+                      cancel_presentation
+                    </span>
+                  </button>
+                </div>
+                <div class="campo">
+                  <button class="boton-icon bnt01" (click)="onNoClick()">
+                    <span class="material-icons">
+                      check_box
+                      </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

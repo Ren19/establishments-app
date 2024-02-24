@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Datos Generales</title>
+</head>
+<body>
+  <div class="flex flex-col gap-4">
+    <div class="m-card">
+      <div class="flex w-full">
+        <div class="flex flex-col gap-4 w-full p-4">
+          <div class="campo">
+            &nbsp;
+          </div>
+          <div class="campo">
+
+            <div class="flex gap-4">
+              <button class="boton-icon bnt01" (click)="clickNuevo()">
+                <span class="material-icons">
+                  open_in_new
+                </span>
+              </button>
+              <button class="boton-icon bnt01">
+                <span class="material-icons">
+                  edit
+                </span>
+              </button>
+              <button class="boton-icon bnt01" (click)="clickAnular()">
+                <span class="material-icons">
+                  delete
+                </span>
+              </button>
+              <button class="boton-icon bnt01" (click)="clickGuardar()">
+                <span class="material-icons">
+                  save
+                </span>
+              </button>
+              <button class="boton-icon bnt01">
+                <span class="material-icons">
+                  cancel
+                </span>
+              </button>
+              <button class="boton-icon bnt01">
+                <span class="material-icons">
+                  print
+                </span>
+              </button>
+              <button class="boton-icon bnt01" (click)="clickBuscar()">
+                <span class="material-icons">
+                  search
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-4 w-full p-4">
+          <div class="campo">
+            <label for="">Nro. Solicitud</label>
+            <input type="nrosolicitud" class="form-control inputText01" [(ngModel)]="cargarSolicitudEstablecimiento.solcodigo">
+          </div>
+          <div class="campo">
+            <label for="">Lugar de registro</label>
+            <div class="flex gap-3">
+              <div class="radios flex items-center gap-1">
+                <input type="radio" class="mb-1">
+                <span>DIGEMIN</span>
+              </div>
+              <div class="radios flex items-center gap-1">
+                <input type="radio" class="mb-1">
+                <span>DISA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-4 w-full p-4">
+          <div class="campo">
+            <label for="">Fecha de Registro:</label>
+            <input type="date" class="form-control inputText01 diametro2" [(ngModel)]="fechaRegistro" name="begin" placeholder="dd-mm-yyyy" min="1997-01-01" max="2030-12-31">
+          </div>
+          <div class="campo">
+            <div class="flex gap-6">
+            <input type="text" class="form-control inputText01" placeholder="Disa Registro" [(ngModel)]="cargarSolicitudEstablecimiento.dsadescrip">
+            <button type="button" class="btn btn-outline-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"></path>
+              </svg>
+            <span class="visually-hidden">Button</span>
+            </button>
+          </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-4 w-full p-4">
+          <div class="campo">
+            <label for="">Modalidad</label>
+            <input type="modalidad" class="form-control inputText01" value="Consulta" readonly>
+          </div>
+          <div class="campo">
+            <label for="">Situaci&oacute;n</label>
+            <input type="siatuacion" class="form-control inputText01"  value="{{cargarSolicitudEstablecimiento.edddescrip}}" readonly>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-3">
+    <div class="m-card">
+      <h2>Informaci&oacute;n de Tramite</h2>
+      <div class="flex w-full">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="campo">
+            <label for="">Nro. Expediente</label>
+           <input type="text" class="form-control inputText01" [(ngModel)]="anioexpediente" placeholder="Año"/>
+           <input type="text" class="form-control inputText01" [(ngModel)]="numeroexpediente"
+                                                            placeholder="N&uacute;mero"
+                                                            maxlength="100"
+                                                            placeholder="search for products"
+                                                            (keydown.enter)="search($event)">
+           <input type="text" class="form-control inputText01" [(ngModel)]="secuenciaexpediente" placeholder="Secuencia"/>
+          </div>
+          <div class="campo">
+            <label for="">Tipo Tramite</label>
+            <select name="cbodgtipotramite" matNativeControl required class="diametro1 inputText01" [(ngModel)]="cargarSolicitudEstablecimiento.idtramite">
+              <option [value]="item.idtramite" *ngFor="let item of cbodgtipotramite">{{item.ttrdescrip}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="campo">
+            <label for="">Procedencia</label>
+            <input type="text" class="form-control inputText01" [(ngModel)]="cargarSolicitudEstablecimiento.solindiprodesc" placeholder="Procedencia">
+          </div>
+          <div class="campo">
+            <label for="">Fecha Expediente</label>
+            <input type="date" class="form-control inputText01 diametro1" [(ngModel)]="fechaExpediente" name="begin" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="m-card">
+      <h2>Informaci&oacute;n de Solicitante</h2>
+      <div class="flex w-full">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="campo">
+            <label for="">Clasificaci&oacute;n de EF:</label>
+            <select name="cboclasificacionestablecimiento" [(ngModel)]="cargarSolicitudEstablecimiento.catcodigo" (change)="getCboclasificacionestablecimiento()" matNativeControl required class="diametro2 inputText01">
+              <option [value]="item.catcodigo" *ngFor="let item of cboclasificacionestablecimiento">{{item.catdescrip}}</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="">Nro. R.U.C001:</label>
+            <input type="text" class="form-control diametro5 inputText01" [(ngModel)]="cargarSolicitudEstablecimiento.solnumeruc" placeholder="RUC"/>
+            <label for="">Tipo Persona:</label>
+            <select name="cbotipopersona" matNativeControl class="diametro2 inputText01" [(ngModel)]="cargarSolicitudEstablecimiento.tprcodigo">
+              <option [value]="item.tprcodigo" *ngFor="let item of cbotipopersona">{{item.tprdescrip}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="campo">&nbsp;</div>
+          <div class="campo">
+            <label for="">&nbsp;Nª Registro EF:</label>
+            <input type="text" class="form-control inputText01" placeholder="Search">
+            <button type="button" class="btn btn-outline-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"></path>
+              </svg>
+            <span class="visually-hidden">Button</span>
+            </button>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="flex w-full">
+        <div class="flex flex-col gap-4 w-full p-2">
+          <div class="campo">
+            <label for="">Raz&oacute;n Social:</label>
+            <input type="text" class="form-control diametro6 inputText01" [(ngModel)]="cargarSolicitudEstablecimiento.solrazonsoc" placeholder="Razon Social"/>
+          </div>
+          <div class="campo">
+            <label for="">Nombre Comercial:</label>
+            <input type="text" class="form-control diametro6 inputText01" [(ngModel)]="cargarSolicitudEstablecimiento.solnombcom" placeholder="Nombre Comercial"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

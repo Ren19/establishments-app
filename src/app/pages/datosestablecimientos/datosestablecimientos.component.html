@@ -1,0 +1,427 @@
+
+<div class="flex flex-col gap-3">
+  <div class="m-card">
+    <h2>Información del registro</h2>
+    <div class="flex w-full">
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">Lugar de registro</label>
+          <div class="flex gap-3">
+            <div class="radios flex items-center gap-1">
+              <input type="radio" class="mb-1">
+              <span>DIGEMIN</span>
+            </div>
+            <div class="radios flex items-center gap-1">
+              <input type="radio" class="mb-1">
+              <span>DISA</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+            <label for="">Sector</label>
+            <select>
+              <option [value]="1">{{1}}</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="">Sub Sector</label>
+            <div class="flex gap-2 w-full items-center">
+              <input type="text">
+              <button class="boton-icon">
+                <span class="material-icons">
+                  search
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="campo">
+          <label for="">Entidad</label>
+          <div class="flex gap-2 w-full items-center">
+            <input type="text">
+            <div class="flex gap-2">
+              <button class="boton-icon">
+                <span class="material-icons">
+                  search
+                </span>
+              </button>
+              <button class="boton-icon">
+                <span class="material-icons">
+                  visibility
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 2 -->
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">Jurisdicción</label>
+          <input type="text">
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div class="campo">
+            <label for="">N° Exp.Inic.Activid.</label>
+            <input type="text">
+          </div>
+          <div class="campo">
+            <label for="">Fecha Exp.</label>
+            <div class="flex gap-2 w-full items-center">
+              <input [matDatepicker]="picker">
+              <mat-datepicker #picker></mat-datepicker>
+              <button  class="boton-icon" (click)="picker.open()">
+                <span class="material-icons">
+                  calendar_month
+                  </span>
+              </button>
+            </div>
+          </div>
+          <div class="campo">
+            <label for="">N° R.D. Aut.</label>
+            <input type="text">
+          </div>
+          <div class="campo">
+            <label for="">Fecha Aut.</label>
+            <div class="flex gap-2 w-full items-center">
+              <input [matDatepicker]="picker">
+              <mat-datepicker #picker></mat-datepicker>
+              <button  class="boton-icon" (click)="picker.open()">
+                <span class="material-icons">
+                  calendar_month
+                  </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="m-card">
+    <h2>Datos Generales del Establecimiento</h2>
+    <div class="flex w-full">
+      <div class="flex flex-col gap-2 w-full p-2">
+
+        <div class="flex gap-3">
+          <div class="campo">
+            <label for="">Dirección</label>
+            <div class="flex gap-2 w-full items-center">
+              <input type="text">
+              <div class="flex gap-2">
+                <button class="boton-icon">
+                  <span class="material-icons">
+                    search
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="campo">
+            <label for="">Nro.</label>
+            <div class="flex gap-2 w-full items-center">
+              <input type="text">
+            </div>
+          </div>
+          <div class="campo">
+            <label for="">Int/Mz/Lote</label>
+            <div class="flex gap-2 w-full items-center">
+              <input type="text">
+            </div>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <div class="campo">
+            <label for="">Urb/AA.HH/PP.JJ</label>
+            <div class="flex gap-2 w-full items-center">
+              <input type="text">
+            </div>
+          </div>
+          <div class="campo">
+            <label for="">Dpto.</label>
+            <div class="flex gap-2 w-full items-center">
+              <div class="flex gap-2 w-full items-center">
+                <input type="text">
+                <div class="flex gap-2">
+                  <button class="boton-icon" (click)="clickBuscarUbigeo()">
+                    <span class="material-icons">
+                      search
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="campo">
+            <label for="">Prov.</label>
+            <div class="flex gap-2 w-full items-center">
+              <input type="text">
+            </div>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <div class="campo">
+            <label for="">Distrito</label>
+            <div class="flex gap-2 w-full items-center">
+              <input type="text">
+            </div>
+          </div>
+          <div class="campo">
+            <label for="">GR Latitud</label>
+            <div class="flex gap-2 w-full items-center">
+              <input type="text">
+            </div>
+          </div>
+          <div class="campo">
+            <label for="">GR Long.</label>
+            <div class="flex gap-2 w-full items-center">
+              <input type="text">
+            </div>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <div class="campo">
+            <label for="">N° Telf(S)</label>
+            <div class="flex gap-2 w-full items-center">
+              <input type="text">
+              <input type="text">
+            </div>
+          </div>
+          <div class="campo">
+            <label for="">N° Fax</label>
+            <div class="flex gap-2 w-full items-center">
+              <input type="text">
+            </div>
+          </div>
+          <div class="campo">
+            &nbsp;
+          </div>
+        </div>
+
+
+
+    </div>
+  </div>
+
+
+  <div class="flex flex-col gap-1">
+    <div class="flex w-full">
+        <div class="m-card">
+
+            <div class="grid grid-cols-1 gap-1">
+              <div class="campo">
+
+
+                <div class="m-card">
+                  <div class="flex justify-between items-center pr-2 pb-2">
+                    <h2>Representante legal</h2>
+                    <div class="flex gap-4">
+                      <button class="boton-icon bnt01" (click)="clickBuscarRepresentanteLegall()">
+                        <span class="material-icons">
+                          add
+                        </span>
+                      </button>
+                      <button class="boton-icon bnt01">
+                        <span class="material-icons">
+                          edit
+                        </span>
+                      </button>
+                      <button class="boton-icon bnt01">
+                        <span class="material-icons">
+                          delete
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  <table mat-table [dataSource]="dataSourceRepresentanteLegal" class="table border">
+
+                    <ng-container matColumnDef="apellidos">
+                      <th mat-header-cell *matHeaderCellDef> Apellidos Nombres</th>
+                      <td mat-cell *matCellDef="let element
+                                                let even = even;"
+                                                [ngClass]="{'rowStyle':even==0}"> {{element.apellidos}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="cargo">
+                      <th mat-header-cell *matHeaderCellDef> Cargo </th>
+                      <td mat-cell *matCellDef="let element
+                                                let even = even;"
+                                                [ngClass]="{'rowStyle':even==0}"> {{element.cargo}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsRepresentanteLegal"></tr>
+                    <tr mat-row
+                        (click)="clickRepresentanteLegal(row)"
+                        *matRowDef="let row; columns: displayedColumnsRepresentanteLegal;"
+                    ></tr>
+                  </table>
+                  <mat-paginator [pageSizeOptions]="[3, 6, 9]"
+                                 showFirstLastButtons
+                                 aria-label="Select page of periodic elements">
+                  </mat-paginator>
+                </div>
+
+
+
+              </div>
+              <div class="campo">
+
+
+                <div class="m-card">
+                  <div class="flex justify-between items-center pr-2 pb-2">
+                    <div class="flex gap-4 items-center">
+                      <h2>Personal</h2>
+                      <div class="campo flex items-center">
+                        <span class="w-16 font-medium">Requiere</span>
+                        <div class="flex gap-3">
+                          <div class="radios flex items-center gap-1">
+                            <input type="radio" class="mb-1">
+                            <span>SI</span>
+                          </div>
+                          <div class="radios flex items-center gap-1">
+                            <input type="radio" class="mb-1">
+                            <span>NO</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex gap-4">
+                      <button class="boton-icon bnt01">
+                        <span class="material-icons"  (click)="clickBuscarPersonal()">
+                          add
+                        </span>
+                      </button>
+                      <button class="boton-icon bnt01">
+                        <span class="material-icons">
+                          edit
+                        </span>
+                      </button>
+                      <button class="boton-icon bnt01">
+                        <span class="material-icons">
+                          delete
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  <table mat-table [dataSource]="dataSourcePersonal" class="table border">
+
+                    <ng-container matColumnDef="apellidos">
+                      <th mat-header-cell *matHeaderCellDef> Apellidos Nombres</th>
+                      <td mat-cell *matCellDef="let element
+                                                let even = even;"
+                                                [ngClass]="{'rowStyle':even==0}"> {{element.apellidos}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="cargo">
+                      <th mat-header-cell *matHeaderCellDef> Cargo </th>
+                      <td mat-cell *matCellDef="let element
+                                                let even = even;"
+                                                [ngClass]="{'rowStyle':even==0}"> {{element.cargo}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsPersonal"></tr>
+                    <tr mat-row
+                        (click)="clickPersonal(row)"
+                        *matRowDef="let row; columns: displayedColumnsPersonal;"
+                    ></tr>
+                  </table>
+                  <mat-paginator [pageSizeOptions]="[3, 6, 9]"
+                                 showFirstLastButtons
+                                 aria-label="Select page of periodic elements">
+                  </mat-paginator>
+                </div>
+
+
+
+              </div>
+            </div>
+        </div>
+        <div class="m-card">
+
+
+          <div class="m-card">
+            <div class="flex justify-between items-center pr-2 pb-2">
+              <h2>Horario de Funcionamiento</h2>
+              <div class="flex gap-3">
+                <button class="boton-icon bnt01">
+                  <span class="material-icons">
+                    add
+                  </span>
+                </button>
+                <button class="boton-icon bnt01">
+                  <span class="material-icons">
+                    edit
+                  </span>
+                </button>
+                <button class="boton-icon bnt01" (click)="eliminarHora()">
+                  <span class="material-icons">
+                    delete
+                  </span>
+                </button>
+                <button class="boton-icon bnt01" (click)="guardarHora()">
+                  <span class="material-icons">
+                    save
+                  </span>
+                </button>
+                <button class="boton-icon bnt01">
+                  <span class="material-icons">
+                    close
+                  </span>
+                </button>
+              </div>
+            </div>
+            <!--table mat-table [dataSource]="dataSourceHorario" class="table border"-->
+            <table mat-table [dataSource]="dataSourceHorario" class="table table-striped table-hover">
+              <ng-container matColumnDef="dia">
+                <th mat-header-cell *matHeaderCellDef> Día</th>
+                <td mat-cell *matCellDef="let element
+                                          let even = even;"
+                                          [ngClass]="{'rowStyle':even==0}"> {{element.dia}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="horario">
+                <th mat-header-cell *matHeaderCellDef> Horario</th>
+                <td mat-cell *matCellDef="let element
+                                          let even = even;"
+                                          [ngClass]="{'rowStyle':even==0}"> {{element.horario}} </td>
+              </ng-container>
+
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumnsHorario"></tr>
+              <tr mat-row
+                  (click)="clickDiaHorario(row)"
+                  *matRowDef="
+                  let row;
+                  let even = even;
+                  columns: displayedColumnsHorario;"
+              ></tr>
+
+
+
+            </table>
+
+            <div class="flex flex-col gap-2 w-full p-2">
+              <div class="campo">
+                <span>Dia Ini:</span>
+                <select name="cboDiaIni" matNativeControl required class="diametro1 inputText01" [(ngModel)]="diaIni">
+                  <option [value]="item.id" *ngFor="let item of listDia">{{item.descripcion}}</option>
+                </select>
+                <span>Fin:</span>
+                <select name="cboDiaFin" matNativeControl required class="diametro1 inputText01" [(ngModel)]="diaFin">
+                  <option [value]="item.id" *ngFor="let item of listDia">{{item.descripcion}}</option>
+                </select>
+                <span>Hr.Ini:</span>
+                <input type="time" id="exampleInput" name="input" [(ngModel)]="horaIni" placeholder="HH:mm" min="00:00" max="23:00" required step="60" />
+                <span>Hr.Fin:</span>
+                <input type="time" id="exampleInput" name="input" [(ngModel)]="horaFin" placeholder="HH:mm" min="00:00" max="23:00" required step="60" />
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+    </div>
+  </div>
+
+</div>

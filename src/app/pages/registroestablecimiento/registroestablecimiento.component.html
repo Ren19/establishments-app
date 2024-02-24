@@ -1,0 +1,103 @@
+<!--div class="barrabotones">
+    <button class="boton-icon bnt01">
+      <span class="material-icons">
+        open_in_new
+      </span>
+    </button>
+    <button class="boton-icon bnt01">
+      <span class="material-icons">
+        edit
+      </span>
+    </button>
+    <button class="boton-icon bnt01">
+      <span class="material-icons">
+        delete
+      </span>
+    </button>
+    <button class="boton-icon bnt01">
+      <span class="material-icons">
+        save
+      </span>
+    </button>
+    <button class="boton-icon bnt01">
+      <span class="material-icons">
+        cancel
+      </span>
+    </button>
+    <button class="boton-icon bnt01">
+      <span class="material-icons">
+        print
+      </span>
+    </button>
+    <button class="boton-icon bnt01">
+      <span class="material-icons">
+        search
+      </span>
+    </button>
+  </div  -->
+
+
+
+
+<mat-tab-group dynamicHeight animationDuration="0ms" selectedIndex="0">
+  <mat-tab label="Datos Generales">
+    <div class="example-large-box mat-elevation-z4">
+      <!-- <iframe
+      width="100%"
+      height="100%"
+      src="http://localhost:4200/datosgenerales"
+      style="border: 0"
+      ></iframe> -->
+      <app-datosgenerales></app-datosgenerales>
+
+    </div>
+  </mat-tab>
+  <mat-tab label="Datos Establecimientos">
+    <div class="example-large-box mat-elevation-z4">
+    <!-- <iframe
+    width="100%"
+    height="100%"
+    src="http://localhost:4200/datosestablecimientos"
+    style="border: 0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe> -->
+    <app-datosestablecimientos></app-datosestablecimientos>
+    </div>
+  </mat-tab>
+  <mat-tab label="Actividades">
+    <div class="example-large-box mat-elevation-z4">
+    <!-- <iframe
+    width="100%"
+    height="100%"
+    src="http://localhost:4200/actividades"
+    style="border: 0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe> -->
+    <app-actividades></app-actividades>
+  </div>
+  </mat-tab>
+  <mat-tab label="Almacenes/Plantas">
+    <div class="example-large-box mat-elevation-z4">
+    <!-- <iframe
+    width="100%"
+    height="100%"
+    src="http://localhost:4200/almacenesplantas"
+    style="border: 1"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe> -->
+    <app-almacenesplantas></app-almacenesplantas>
+  </div>
+  </mat-tab>
+  <mat-tab label="Otro Datos">
+    <div class="example-large-box mat-elevation-z4">
+    <!-- <iframe
+    width="100%"
+    height="400px"
+    src="http://localhost:4200/otros"
+    style="border: 0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe> -->
+    <app-otros></app-otros>
+  </div>
+  </mat-tab>
+</mat-tab-group>

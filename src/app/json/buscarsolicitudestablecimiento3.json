@@ -1,0 +1,32 @@
+{
+    [
+   "catabrevia"  :  "vlor1",
+   "catcodigo"  :  "valor2",
+   "discodigo"  :  "valor3",
+   "dptcodigo"  :  "calor4",
+   "dptdescrip"  :  "valor5",
+   "dsacodigo"  :  "valor6",
+   "eddcodigo"  :  "valor7",
+   "expcodigo"  :  "valor8",
+   "expfechreg"  :  "valor9",
+   "expnumesec"  :  "valor10",
+   "idclasiftrm"  :  "valor11",
+   "prvcodigo"  :  "valor12",
+   "prvdescrip"  :  "valor14",
+   "solcodigo"  :  "valor15",
+   "soldescrip"  :  "valor16",
+   "soldireccion"  :  "valor17",
+   "soldocufech"  :  "valor18",
+   "soldocuref"  :  "valor19",
+   "solfechsol"  :  "valor20",
+   "solindipro"  :  "alor21",
+   "solnombcom"  :  "valor22",
+   "solnumeins"  :  "valor23",
+   "solnumeruc"  :  "valor20",
+   "tdtabreviasit"  :"valor20",
+   "ttrabrevia"  :  "valor21",
+   "ttrcodigo"  :  "valor20",
+   "ubicodigo"  :  "valor21",
+   "usrcodigo"  :  "valor23"
+    ]
+  }

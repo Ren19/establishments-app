@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Datos Generales</title>
+</head>
+<body>
+
+<div class="flex flex-col gap-1">
+  <div class="flex w-full">
+      <div class="m-card">
+        <div class="flex justify-between items-center pr-2 pb-2">
+          <h2>Almacenes y / o Plantas</h2>
+        </div>
+        <table mat-table [dataSource]="dataSource" class="table table-striped table-hover">
+
+          <!-- numero Column -->
+          <ng-container matColumnDef="numero">
+            <th mat-header-cell *matHeaderCellDef> Numero</th>
+            <td mat-cell *matCellDef="let element"> {{element.numero}} </td>
+          </ng-container>
+
+          <!-- nombre Column -->
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+          </ng-container>
+
+          <!-- tipo Column -->
+          <ng-container matColumnDef="tipo">
+            <th mat-header-cell *matHeaderCellDef> Tipo </th>
+            <td mat-cell *matCellDef="let element"> {{element.tipo}} </td>
+          </ng-container>
+
+          <!-- constancia Column -->
+          <ng-container matColumnDef="constancia">
+            <th mat-header-cell *matHeaderCellDef> Constancia </th>
+            <td mat-cell *matCellDef="let element"> {{element.constancia}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row
+              (click)="singlePayment(row)"
+              *matRowDef="let row; columns: displayedColumns;"
+          ></tr>
+
+        </table>
+        <mat-paginator [pageSizeOptions]="[3, 6, 9]"
+                       showFirstLastButtons
+                       aria-label="Select page of periodic elements">
+        </mat-paginator>
+
+      </div>
+
+
+        <div class="m-card">
+          <div class="flex justify-between items-center pr-2 pb-2">
+            <div class="flex gap-4 items-center">
+              <h2>Datos Generales</h2>
+            </div>
+            <div class="flex gap-4">
+              <button class="boton-icon {{botonAddAlmacenesPlantasStyle}}" [disabled]="isAddAlmacenesPlantas" (click)="add()">
+                <span class="material-icons">
+                  add
+                </span>
+              </button>
+              <button class="boton-icon {{botonEditAlmacenesPlantasStyle}}" [disabled]="isEditAlmacenesPlantas" (click)="edit()">
+                <span class="material-icons">
+                  edit
+                </span>
+              </button>
+              <button class="boton-icon {{botonDeleteAlmacenesPlantasStyle}}" [disabled]="isDeleteAlmacenesPlantas" (click)="delete()">
+                <span class="material-icons">
+                  delete
+                </span>
+              </button>
+              <button class="boton-icon {{botonSaveAlmacenesPlantasStyle}}" [disabled]="isSaveAlmacenesPlantas" (click)="save()">
+                <span class="material-icons">
+                  save
+                </span>
+              </button>
+            </div>
+          </div>
+
+
+
+  <div class="flex flex-col gap-2">
+    <div class="m-card">
+      <div class="flex w-full">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="campo">
+            <div class="grid grid-cols-5 gap-5">
+              <div class="campo2">
+                <label for="">Id</label>
+               <input type="text" [(ngModel)]="TxtALALItem" class="longitud1" placeholder="Item" [disabled]="isTxtALALItem">
+              </div>
+              <div class="campo2">
+               <label for="">Tipo</label>
+               <select name="CboALALTipo" class="longitud1" matNativeControl [(ngModel)]="CboALALTipo" [disabled]="isCboALALTipo">
+                <option value="001" selected>ALMACEN</option>
+                <option value="004">LINEA</option>
+                <option value="003">OFICINA ADMINISTRATIVA</option>
+                <option value="002">PLANTA</option>
+               </select>
+
+              </div>
+              <div class="campo2">
+               <label for="">Sec.</label>
+                <select name="CboALALTalCodigoSec" class="longitud1" matNativeControl [(ngModel)]="CboALALTalCodigoSec" [disabled]="isCboALALTalCodigoSec">
+                <option value="01" selected>01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                </select>
+              </div>
+              <div class="campo3">
+                <label for="">Cod. Uso</label>
+                 <select name="CboALALCondUso" class="longitud1" matNativeControl [(ngModel)]="CboALALCondUso" [disabled]="isCboALALCondUso">
+                 <option value="A" selected>CON SERVICIO</option>
+                 <option value="P">SIN SERVICIO</option>
+                 </select>
+               </div>
+           </div>
+          </div>
+          <div class="campo">
+            <div class="grid grid-cols-4 gap-4">
+              <div class="campo2">
+                <label for="">&nbsp;</label>
+              </div>
+              <div class="campo2">
+                <input type="text" [(ngModel)]="TxtALPropietario"  placeholder="Propietario" [disabled]="isTxtALPropietario" />
+              </div>
+              <div class="campo2">
+                <label for="">Inicio</label>
+              </div>
+              <div class="campo2">
+                <input type="text" [(ngModel)]="TxtALALFecIniAct"  placeholder="Fecha Inicio" [disabled]="isTxtALALFecIniAct" />
+              </div>
+            </div>
+          </div>
+          <div class="campo">
+            <div class="grid grid-cols-4 gap-4">
+              <div class="campo2">
+                <label for="">Nombre</label>
+              </div>
+              <div class="campo">
+               <input type="text" [(ngModel)]="TxtALALNombre"  placeholder="Nombre" [disabled]="isTxtALALNombre" />
+              </div>
+              <div class="campo2">
+                <label for="">Fin</label>
+              </div>
+              <div class="campo">
+               <input type="text" [(ngModel)]="TxtALALFecFinAct" placeholder="Fin" [disabled]="isTxtALALFecFinAct" />
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="campo">
+            <div class="grid grid-cols-4 gap-4">
+              <div class="campo2"><label for="">Direccion</label></div>
+              <div class="campo2"><input type="text" [(ngModel)]="TxtALALDireccion" placeholder="Direccion" [disabled]="isTxtALALDireccion"/></div>
+              <div class="campo2"><label for="">Numero</label></div>
+              <div class="campo2"><input type="text" [(ngModel)]="TxtALALDirNro" placeholder="Numero" [disabled]="isTxtALALDirNro"/></div>
+            </div>
+          </div>
+          <div class="campo">
+            <div class="grid grid-cols-4 gap-4">
+             <div class="campo2"><label for="">Urb/AH/PJ</label></div>
+             <div class="campo2"><input type="text" [(ngModel)]="TxtALALDirUrbanizacion" placeholder="Urb/AH/PJ" [disabled]="isTxtALALDirUrbanizacion"/></div>
+             <div class="campo2"><label for="">Int/Mz/Lote</label></div>
+             <div class="campo2"><input type="text" [(ngModel)]="TxtALALDirIntMzLote" placeholder="Int/Mz/Lote" [disabled]="isTxtALALDirIntMzLote"/></div>
+            </div>
+          </div>
+
+
+          <div class="campo">
+            <div class="grid grid-cols-2 gap-2">
+              <div class="campo">
+                <label for="">Ubigeo</label>
+              </div>
+              <div class="campo">
+                <input type="text" [(ngModel)]="TxtALALUbigeo" placeholder="Ubigeo" [disabled]="isTxtALALUbigeo" />
+                <button class="boton-icon">
+                  <span class="material-icons">
+                    search
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="campo">
+            <div class="grid grid-cols-4 gap-4">
+             <div class="campo2"><label for="">Longitud</label></div>
+             <div class="campo2"><input type="text" [(ngModel)]="TxtALALLongitud" placeholder="Urb/AH/PJ" [disabled]="isTxtALALLongitud"/></div>
+             <div class="campo2"><label for="">Latitud</label></div>
+             <div class="campo2"><input type="text" [(ngModel)]="TxtALALLatitud" placeholder="Int/Mz/Lote" [disabled]="isTxtALALLatitud"/></div>
+            </div>
+          </div>
+          <div class="campo">
+            <div class="grid grid-cols-4 gap-4">
+             <div class="campo2"><label for="">Horario</label></div>
+             <div class="campo2"><input type="text" [(ngModel)]="TxtALALHorario" placeholder="Horario" [disabled]="isTxtALALHorario"/></div>
+             <div class="campo2">&nbsp;</div>
+             <div class="campo2">&nbsp;</div>
+            </div>
+          </div>
+          <div class="campo">
+            <div class="grid grid-cols-4 gap-4">
+             <div class="campo2">
+              <label for="">Telef.</label>
+            </div>
+            <div class="campo">
+              <input type="text" [(ngModel)]="TxtALALTelef1" placeholder="Telef." [disabled]="isTxtALALTelef1"/>
+            </div>
+             <div class="campo">Existe horario diferente registrado.</div>
+             <div class="campo2">&nbsp;</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="flex w-full">
+  <div class="m-card">
+    <div class="flex justify-between items-center pr-2 pb-2">
+      <h2>Areas</h2>
+    </div>
+    <table mat-table [dataSource]="dataSource2" class="table table-striped table-hover">
+      <ng-container matColumnDef="numero">
+        <th mat-header-cell *matHeaderCellDef>Numero</th>
+        <td mat-cell *matCellDef="let element"> {{element.numero}} </td>
+      </ng-container>
+      <ng-container matColumnDef="clasificacion">
+        <th mat-header-cell *matHeaderCellDef>Clasificacion</th>
+        <td mat-cell *matCellDef="let element"> {{element.clasificacion}} </td>
+      </ng-container>
+      <ng-container matColumnDef="subclasificacion">
+        <th mat-header-cell *matHeaderCellDef>Sub Clasificacion</th>
+        <td mat-cell *matCellDef="let element"> {{element.subclasificacion}} </td>
+      </ng-container>
+      <ng-container matColumnDef="grupo">
+        <th mat-header-cell *matHeaderCellDef>Grupo</th>
+        <td mat-cell *matCellDef="let element"> {{element.grupo}} </td>
+      </ng-container>
+      <ng-container matColumnDef="subgrupo">
+        <th mat-header-cell *matHeaderCellDef>Sub Grupo</th>
+        <td mat-cell *matCellDef="let element"> {{element.subgrupo}} </td>
+      </ng-container>
+      <ng-container matColumnDef="tipoproducto">
+        <th mat-header-cell *matHeaderCellDef>Tipo Producto</th>
+        <td mat-cell *matCellDef="let element"> {{element.tipoproducto}} </td>
+      </ng-container>
+      <ng-container matColumnDef="areanivelriesgo">
+        <th mat-header-cell *matHeaderCellDef>Area Nivel Riesgo</th>
+        <td mat-cell *matCellDef="let element"> {{element.areanivelriesgo}} </td>
+      </ng-container>
+      <ng-container matColumnDef="esterilidad">
+        <th mat-header-cell *matHeaderCellDef>Esterilidad</th>
+        <td mat-cell *matCellDef="let element"> {{element.esterilidad}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+      <tr mat-row
+          (click)="singlePayment2(row)"
+          *matRowDef="let row; columns: displayedColumns2;"
+      ></tr>
+
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[3, 6, 9]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+
+  </div>
+
+
+    <div class="m-card">
+      <div class="flex justify-between items-center pr-2 pb-2">
+        <div class="flex gap-4 items-center">
+          <h2>Datos Generales</h2>
+        </div>
+        <div class="flex gap-4">
+          <button class="boton-icon {{botonAreaStyle}}" [disabled]="isAddArea">
+            <span class="material-icons">
+              add
+            </span>
+          </button>
+          <button class="boton-icon {{botonAreaStyle}}" [disabled]="isEditArea">
+            <span class="material-icons">
+              edit
+            </span>
+          </button>
+          <button class="boton-icon {{botonAreaStyle}}" [disabled]="isDeleteArea">
+            <span class="material-icons">
+              delete
+            </span>
+          </button>
+          <button class="boton-icon {{botonAreaStyle}}" [disabled]="isSaveArea">
+            <span class="material-icons">
+              save
+            </span>
+          </button>
+        </div>
+      </div>
+
+
+
+<div class="flex flex-col gap-2">
+<div class="m-card">
+  <div class="flex w-full">
+    <div class="flex flex-col gap-2 w-full p-2">
+      <div class="campo">
+        <div class="grid grid-cols-2 gap-2">
+          <div class="campo3">
+            <div class="grid grid-cols-2 gap-2">
+              <div class="campo">
+                <label for="">Id</label>
+              </div>
+              <div class="campo">
+                <input type="text" [(ngModel)]="TxtALARItem" placeholder="Direccion" [disabled]="isTxtALARItem">
+                <button class="boton-icon">
+                  <span class="material-icons">
+                    search
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="campo">
+            <textarea rows="1" [(ngModel)]="TxtALARLiteral" [disabled]="isTxtALARLiteral" placeholder="Literal"></textarea>
+           </div>
+       </div>
+      </div>
+      <div class="campo">
+        <div class="grid grid-cols-4 gap-4">
+          <div class="campo2">
+            <label for="">Clasificacion</label>
+          </div>
+          <div class="campo">
+           <input type="text" [(ngModel)]="TxtALARDescrip" [disabled]="isTxtALARDescrip">
+          </div>
+        </div>
+      </div>
+      <div class="campo">
+        <div class="grid grid-cols-4 gap-4">
+          <div class="campo"><label for="">Sub Clasificacion</label></div>
+          <div class="campo"><input type="text" [(ngModel)]="TxtALARSubtipo" [disabled]="isTxtALARSubtipo" placeholder="Sub Clasificacion"/></div>
+        </div>
+      </div>
+      <div class="campo">
+        <div class="grid grid-cols-4 gap-4">
+         <div class="campo"><label for="">Grupo</label></div>
+         <div class="campo"><input type="text" [(ngModel)]="TxtALARGrupo" [disabled]="isTxtALARGrupo" placeholder="Grupo"/></div>
+        </div>
+      </div>
+      <div class="campo">
+        <div class="grid grid-cols-4 gap-4">
+         <div class="campo"><label for="">Sub Grupo</label></div>
+         <div class="campo"><input type="text" [(ngModel)]="TxtALARSubgrupo" [disabled]="isTxtALARSubgrupo" placeholder="Sub Grupo"/></div>
+        </div>
+      </div>
+      <div class="campo">
+        <div class="grid grid-cols-4 gap-4">
+         <div class="campo"><label for="">Tipo Producto</label></div>
+         <div class="campo"><input type="text" [(ngModel)]="TxtALARTipoprod" [disabled]="isTxtALARTipoprod" placeholder="Tipo Producto"/></div>
+        </div>
+      </div>
+      <div class="campo">
+        <div class="grid grid-cols-4 gap-4">
+         <div class="campo"><label for="">Area/Nivel Rsgo</label></div>
+         <div class="campo"><input type="text" [(ngModel)]="TxtALAREstFisFab"  [disabled]="isTxtALAREstFisFab"placeholder="Area EstFisFab"/></div>
+         <div class="campo"><input type="text" [(ngModel)]="TxtALAREsterilidad"  [disabled]="isTxtALAREsterilidad" placeholder="Area Sterilidad"/></div>
+         <div class="campo">&nbsp;</div>
+        </div>
+      </div>
+      <div class="campo">
+        <div class="grid grid-cols-4 gap-4">
+         <div class="campo"><label for="">Forma Obtenecion</label></div>
+         <div class="campo">
+          <select name="cbodgtipotramite" class="longitud1" [(ngModel)]="CboALALFormaObt"  matNativeControl [disabled]="isCboALALFormaObt">
+            <option selected>Select Forma</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+       </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+
+</body>
+</html>
